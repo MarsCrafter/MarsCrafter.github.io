@@ -48,6 +48,131 @@
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+
+  <style>
+    /* Flexbox for centering the grid on the page */
+
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 3列布局 */
+      gap: 20px; /* 网格之间的间距 */
+      max-width: 1200px; /* 网格最大宽度 */
+      margin: 0 auto; /* 居中 */
+      /* margin-bottom: 20px; 视频网格与下面的内容留有缝隙 */
+    }
+
+    .video-item {
+      position: relative;
+      background-color: #000;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .video-item video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* 标题显示在右下角 */
+    .video-title {
+      position: absolute;
+      bottom: 5px;
+      right: 10px; /* 右下角 */
+      color: white;
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 5px;
+      border-radius: 4px;
+      transition: opacity 0.3s ease;
+      opacity: 1; /* 默认显示 */
+      text-align: right; /* 文字右对齐 */
+    }
+    /* 鼠标悬停时隐藏标题 */
+    .video-item:hover .video-title {
+      opacity: 0;
+    } 
+
+    /* Basic styling for the container */
+    .txj_section {
+      padding: 20px;
+      background-color: #f5f5f5;
+      margin: 40px auto;
+      max-width: 1200px;
+    }
+
+    /* Styling for the title */
+    .txj_title {
+      font-size: 2rem;
+      font-weight: bold;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    /* Styling for the description paragraph */
+    .txj_description {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+      text-align: left;
+      margin-bottom: 10px;
+    }
+
+    /* Styling for the image
+    .txj_image-container {
+      text-align: left;
+    } */
+
+    .txj_image-container img {
+      /* margin-bottom: 20px; */
+      max-width: 70%; /* Adjust width percentage */
+      /* max-width: 100%; */
+      height: auto;
+      margin: 0 auto; /*Center the image */
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* Styling for the image */
+
+    .txj2_section {
+      padding: 20px;
+      background-color: #f5f5f5;
+      max-width: 1200px;
+      display: flex;
+      align-items: flex-start;
+      margin: 0 auto;
+    }
+    .txj2_image-container {
+      flex: 1; /* Image takes up equal space */
+      padding-right: 10px; /* Add some space between image and text */
+    }
+    .txj2_image-container img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Styling for the text */
+    .txj2_text-container {
+      flex: 1; /* Text takes up equal space */
+      padding-left: 20px;
+    }
+
+    .txj2_text-container h2 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .txj2_text-container p {
+      font-size: 1rem;
+      color: #333;
+      line-height: 1.6;
+    }
+  </style>
+
+
 </head>
 
 <body>
@@ -76,6 +201,8 @@
               <span class="author-block">
                 <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Jiaqi Li</a><sup>2</sup>,</span>
               <span class="author-block">
+                <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Song-chun Zhu</a><sup>2</sup>,</span>
+              <span class="author-block">
                 <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Yitao Liang</a><sup>1</sup>,
               </span>
               <span class="author-block">
@@ -97,7 +224,7 @@
               <div class="publication-links">
                 <!-- Arxiv PDF link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
+                  <a href="static/pdfs/CCrafter_NeurIP24.pdf" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -108,7 +235,7 @@
 
                 <!-- Github link -->
                 <span class="link-block">
-                  <a href="https://github.com/YOUR REPO HERE" target="_blank"
+                  <a href="https://github.com/XiaojuanTang/Mars" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="fab fa-github"></i>
@@ -137,11 +264,11 @@
 
 
   <!-- Teaser video-->
-  <section class="hero teaser">
+  <!-- <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
         <video poster="" id="tree" autoplay controls muted loop height="100%">
-          <!-- Your video here -->
+          Your video here
           <source src="static/videos/banner_video.mp4" type="video/mp4">
         </video>
         <h2 class="subtitle has-text-centered">
@@ -150,8 +277,46 @@
         </h2>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End teaser video -->
+
+  <!-- Video Grid -->
+  <section class="video-grid">
+    <div class="video-item">
+      <video src="static/videos/default/20240519T215710-ach11-len218.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Default</div>
+    </div>
+    <div class="video-item">
+      <video src="static/videos/world_terr/20240523T193933-ach14-len226.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Modifying Terrain</div>
+    </div>
+    <div class="video-item">
+      <video src="static/videos/world_npc/20240529T071830-ach8-len154.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Modifying NPC</div>
+    </div>
+    <div class="video-item">
+      <video src="static/videos/world_ach/20240521T202324-ach15-len484.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Modifying Task Dependency</div>
+    </div>
+    <!-- <div class="video-item">
+      <video src="static/videos/world_terr_npc/20240530T161132-ach10-len253.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Video 5</div>
+    </div>
+    <div class="video-item">
+      <video src="static/videos/world_terr_ach/20240523T184527-ach15-len275.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Video 6</div>
+    </div>
+    <div class="video-item">
+      <video src="static/videos/world_npc_ach/20240523T133310-ach6-len128.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Video 7</div>
+    </div>
+    <div class="video-item">
+      <video src="static/videos/world_terr_npc_ach/20240523T224259-ach8-len176.mp4" autoplay muted loop controls></video>
+      <div class="video-title">Video 8</div>
+    </div> -->
+  </section>
+
+
 
   <!-- Paper abstract -->
   <section class="section hero is-light">
@@ -161,11 +326,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ullamcorper tellus sed ante aliquam tempus.
-              Etiam porttitor urna feugiat nibh elementum, et tempor dolor mattis. Donec accumsan enim augue, a
-              vulputate nisi sodales sit amet. Proin bibendum ex eget mauris cursus euismod nec et nibh. Maecenas ac
-              gravida ante, nec cursus dui. Vivamus purus nibh, placerat ac purus eget, sagittis vestibulum metus. Sed
-              vestibulum bibendum lectus gravida commodo. Pellentesque auctor leo vitae sagittis suscipit.
+              Large Language Models (LLMs) trained on massive corpora have shown remarkable success in knowledge-intensive tasks. Yet, most of them rely on pre-stored knowledge. Inducing new general knowledge from a specific environment and performing reasoning with the acquired knowledge---<b>situated inductive reasoning</b>, is crucial and challenging for machine intelligence. In this paper, we design Mars, an interactive environment devised for situated inductive reasoning. It introduces counter-commonsense game mechanisms by modifying terrain, survival setting and task dependency while adhering to certain principles. In Mars, agents need to actively interact with their surroundings, derive useful rules and perform decision-making tasks in specific contexts. We conduct experiments on various RL-based and LLM-based methods, finding that they all struggle on this challenging situated inductive reasoning benchmark. Furthermore, we explore <b>Induction from Reflection</b>, where we instruct agents to perform inductive reasoning from history trajectory. The superior performance underscores the importance of inductive reasoning in Mars. Through Mars, we aim to galvanize advancements in situated inductive reasoning and set the stage for developing the next generation of AI systems that can reason in an adaptive and context-sensitive way. 
             </p>
           </div>
         </div>
@@ -173,36 +334,124 @@
     </div>
   </section>
   <!-- End paper abstract -->
+  <!-- Teaser image-->
+  <section class="txj_section">
+    <!-- Title -->
+    <h1 class="txj_title">Mars</h1>
+    
+    <!-- Description -->
+    <p class="txj_description">
+      Mars, an open-world environment for situated inductive reasoning, involves inductive reasoning through active interaction and applying newly acquired rules to make context-sensitive decisions.
+    </p>
 
+    <!-- Image Section -->
+    <div class="txj_image-container">
+      <img src="static/images/problem_definition.png" alt="Mars Environment Overview">
+    </div>
+
+    <!-- Additional text below the image if needed -->
+    <p class="txj_description">
+      First, built on Crafter, we introduce counter-commonsense elements to design Mars. Agents interact with the environment and accumulate historical trajectories. For example, an agent might observe that regardless of time or location, mining stone always yields diamonds; using 2 diamonds can craft a table. Consequently, the agent can induce rules "Mining stone yields diamond" and "Placing table consumes 2 diamonds". When tasked with making a wooden pickaxe, the agent can apply these rules to plan and execute specific actions in different contexts.
+    </p>
+  </section>
+
+
+  <section class="txj_section">
+    <!-- Title -->
+    <h1 class="txj_title">Modification: From Crafter to Mars</h1>
+    
+    <!-- Description -->
+    <p class="txj_description">
+      To challenge the agent with an environment that deviates from prior (parametric) knowledge and necessitates situated inductive reasoning, we introduce targeted modifications to typical commonsense elements on the foundation of Crafter, classified into three categories: (1) Terrain: altering the predictable terrain distributions; (2) Survival: modifying the behavior of non-player characters, which effects the agents status level (e.g., health); (3) Task Dependency: changing the dependency between tasks.
+    </p>
+
+    <!-- Image Section -->
+    <div class="txj_image-container">
+      <img src="static/images/modification_env.png" alt="Mars Environment Overview">
+    </div>
+
+    <!-- Additional text below the image if needed -->
+    <p class="txj_description">
+      While we can sample numerous new worlds following the above procedure, we carefully designed several strict principles so that they are not completely fantastical and are always playable. We guarantee that each collected item has at least one obtainable method and each tool has a practical use, motivating the agent to engage in crafting; for every resource that can be increased by some event, there must be a corresponding event that can decrease the resource, maintaining a balance; we also develop an automated program to ensure that each achievement is achievable; the quantity of items required for task achievements must be greater than what the world provides.
+    </p>
+  </section>
+
+  <section class="txj2_section">
+    <!-- Image Section -->
+    <div class="txj2_image-container">
+      <img src="static/images/induction.png" alt="Graph Image">
+    </div>
+
+    <!-- Text Section -->
+    <div class="txj2_text-container">
+      <h2>Method: Induction from Reflection</h2>
+      <p>
+        Building on the JARVIS-1 framework, we further introduce the <b>induction from reflection (IfR)</b> module in <em>Controller</em>. Given the selected task and the agent's observation, <em>planner</em> decomposes the task into a sequence of subgoals. <em>Controller</em> then outputs specific actions to accomplish these subgoals. Successful plans are stored in the <em>skill library</em>, while failed plans prompt the agent to perform self-explanation and replan. When the <em>controller</em> finishes a subgoal (including "succeed", "failed" or "timeout"), we force LLM to engage in reflective thinking to induce possible game mechanisms based on the agent’s historical trajectory. The derived rules are then stored in a <em>rule library</em>, which the task proposer, planner, and controller can use.
+      </p>
+    </div>
+  </section>
+
+  <section class="txj_section">
+    <!-- Title -->
+    <h1 class="txj_title">Experimental Results</h1>
+    
+    <!-- Description -->
+    <p class="txj_description">
+      We systematically evaluate the performance of various RL-based and LLM-based methods on Mars. For LLMs that cannot accept image inputs, we provide a wrapper
+      that gives text descriptions of gameplay screen. Quantitative results on Mars are depicted as follows.
+    </p>
+
+    <!-- Image Section -->
+    <div class="txj_image-container">
+      <img src="static/images/result.png" alt="Mars Environment Overview">
+    </div>
+
+    <!-- Additional text below the image if needed -->
+    <p class="txj_description">
+      We find that all baseline models exhibit a performance decline when transitioning from the Default to Mars scenarios, with the extent of the decline dependent on the type (e.g., terrain, survival, and task dependency) and the number of modifications. This underscores that Mars presents significant challenges for current methodologies. We also explore the performance of the <b>Induction from Reflection</b> module, which outperforms the baseline models, demonstrating the importance of inductive reasoning in a counter-commonsense environment.
+    </p>
+  </section>
+
+  <!-- <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/problem_definition.png" alt="Teaser Image" id="tree" style="height: 100%; width: 100%;">
+        <h2 class="content has-text-justified" >
+          Mars, an open-world environment for situated inductive reasoning, involves inductive reasoning through active interaction and applying newly acquired rules to make context-sensitive decisions. First, built on Crafter, we introduce counter-commonsense elements to design Mars. Agents interact with the environment and accumulate historical trajectories. For example, an agent might observe that regardless of time or location, mining stone always yields diamonds; using 2 diamonds can craft a table. Consequently, the agent can induce rules "Mining stone yields diamond" and "Placing table consumes 2 diamonds". When tasked with making a wooden pickaxe, the agent can apply these rules to plan and execute specific actions in different contexts.
+        </h2>
+      </div>
+    </div>
+  </section> -->
+  <!-- Teaser image-->
 
   <!-- Image carousel -->
-  <section class="hero is-small">
+  <!-- <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item">
-            <!-- Your image here -->
+             Your image here 
             <img src="static/images/carousel1.jpg" alt="MY ALT TEXT" />
             <h2 class="subtitle has-text-centered">
               First image description.
             </h2>
           </div>
           <div class="item">
-            <!-- Your image here -->
+             Your image here
             <img src="static/images/carousel2.jpg" alt="MY ALT TEXT" />
             <h2 class="subtitle has-text-centered">
               Second image description.
             </h2>
           </div>
           <div class="item">
-            <!-- Your image here -->
+            Your image here 
             <img src="static/images/carousel3.jpg" alt="MY ALT TEXT" />
             <h2 class="subtitle has-text-centered">
               Third image description.
             </h2>
           </div>
           <div class="item">
-            <!-- Your image here -->
+             Your image here 
             <img src="static/images/carousel4.jpg" alt="MY ALT TEXT" />
             <h2 class="subtitle has-text-centered">
               Fourth image description.
@@ -211,23 +460,23 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End image carousel -->
 
 
 
 
   <!-- Youtube video -->
-  <section class="hero is-small is-light">
+  <!-- <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
-        <!-- Paper video. -->
+        -- Paper video.
         <h2 class="title is-3">Video Presentation</h2>
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
 
             <div class="publication-video">
-              <!-- Youtube embed code here -->
+               Youtube embed code here
               <iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media"
                 allowfullscreen></iframe>
             </div>
@@ -235,38 +484,38 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End youtube video -->
 
 
   <!-- Video carousel -->
-  <section class="hero is-small">
+  <!-- <section class="hero is-small">
     <div class="hero-body">
       <div class="container">
         <h2 class="title is-3">Another Carousel</h2>
         <div id="results-carousel" class="carousel results-carousel">
           <div class="item item-video1">
             <video poster="" id="video1" autoplay controls muted loop height="100%">
-              <!-- Your video file here -->
+               Your video file here
               <source src="static/videos/carousel1.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item item-video2">
             <video poster="" id="video2" autoplay controls muted loop height="100%">
-              <!-- Your video file here -->
+               Your video file here
               <source src="static/videos/carousel2.mp4" type="video/mp4">
             </video>
           </div>
           <div class="item item-video3">
             <video poster="" id="video3" autoplay controls muted loop height="100%">\
-              <!-- Your video file here -->
+              Your video file here 
               <source src="static/videos/carousel3.mp4" type="video/mp4">
             </video>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!-- End video carousel -->
 
 
@@ -275,28 +524,28 @@
 
 
   <!-- Paper poster -->
-  <section class="hero is-small is-light">
+  <!-- <section class="hero is-small is-light">
     <div class="hero-body">
       <div class="container">
         <h2 class="title">Poster</h2>
 
-        <iframe src="static/pdfs/sample.pdf" width="100%" height="550">
+        <iframe src="static/pdfs/Mars_poster.pdf" width="100%" height="550">
         </iframe>
 
       </div>
     </div>
-  </section>
+  </section> -->
   <!--End paper poster -->
 
 
   <!--BibTex citation -->
   <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
+    <div class="container is-max-desktop content" style="max-width: 1200px; margin: 0 auto; padding-left: 20px;">
       <h2 class="title">BibTeX</h2>
       <pre class="highlight language-bibtex"><code class="language-bibtex">
 @inproceedings{tang2024mars,
     title={Mars: Situated Inductive Reasoning in an Open-World Environment},
-    author={Tang, Xiaojuan and Li, Jiaqi and Liang, Yitao and Zhang, Muhan and Zheng, Zilong},
+    author={Tang, Xiaojuan and Li, Jiaqi and Zhu, Song-chun and Liang, Yitao and Zhang, Muhan and Zheng, Zilong},
     booktitle={38th Conference on Neural Information Processing Systems (NeurIPS 2024) Track on Datasets and Benchmarks},
     year={2024}
 }</code></pre>
