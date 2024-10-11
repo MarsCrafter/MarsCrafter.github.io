@@ -55,44 +55,75 @@
 
 
     .video-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr); /* 3列布局 */
-      gap: 20px; /* 网格之间的间距 */
-      max-width: 1200px; /* 网格最大宽度 */
-      margin: 0 auto; /* 居中 */
-      /* margin-bottom: 20px; 视频网格与下面的内容留有缝隙 */
-    }
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* 减少网格之间的间距 */
+  max-width: 1200px; /* 网格最大宽度 */
+  margin: 0 auto; /* 居中 */
+}
 
-    .video-item {
-      position: relative;
-      background-color: #000;
-      border-radius: 8px;
-      overflow: hidden;
-    }
+.video-item {
+  display: flex;
+  flex-direction: column; /* 垂直排列 */
+  align-items: center; /* 水平居中 */
+  width: calc(25% - 10px); /* 每列占四分之一的宽度，间距减小到10px */
+}
 
-    .video-item video {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
+.video-wrapper {
+  position: relative;
+  background-color: #000;
+  border-radius: 8px;
+  overflow: hidden;
+}
 
-    /* 标题显示在右下角 */
-    .video-title {
-      position: absolute;
-      bottom: 5px;
-      right: 10px; /* 右下角 */
-      color: white;
-      background-color: rgba(0, 0, 0, 0.5);
-      padding: 5px;
-      border-radius: 4px;
-      transition: opacity 0.3s ease;
-      opacity: 1; /* 默认显示 */
-      text-align: right; /* 文字右对齐 */
-    }
+.video-wrapper video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.video-title {
+  position: absolute;
+  bottom: 5px;
+  right: 10px; /* 右下角 */
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 5px;
+  border-radius: 4px;
+  text-align: right; /* 文字右对齐 */
+}
+
+.video-description {
+  background-color: #f9f9f9;
+  padding: 4px; /* 缩小卡片的内边距 */
+  margin-top: 5px; /* 减小视频和卡片之间的间距 */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  text-align: left;
+  font-size: 0.8rem; /* 缩小字体大小 */
+  min-height: 45px;
+  width: 100%; /* 确保卡片宽度和视频一致 */
+  box-sizing: border-box; /* 确保内边距不影响宽度 */
+}
+
+.video-description ul {
+  list-style: none; /* 去除列表样式 */
+  padding: 0;
+  margin: 0; /* 去除默认的外边距 */
+}
+
+.video-description ul li {
+  margin-bottom: 2px; /* 减少列表项之间的间距 */
+  line-height: 1.2; /* 调整行高，使得列表项更加紧凑 */
+}
+
+.video-description strong {
+  color: #333;
+}
     /* 鼠标悬停时隐藏标题 */
     .video-item:hover .video-title {
       opacity: 0;
-    } 
+    }
 
     /* Basic styling for the container */
     .txj_section {
@@ -246,7 +277,7 @@
 
                 <!-- ArXiv abstract Link -->
                 <span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
+                  <a href="https://arxiv.org/abs/2410.08126" target="_blank"
                     class="external-link button is-normal is-rounded is-dark">
                     <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -280,46 +311,71 @@
   </section> -->
   <!-- End teaser video -->
 
-  <!-- Video Grid -->
-  <section class="video-grid">
-    <div class="video-item">
+<!-- Video Grid -->
+<section class="video-grid">
+  <div class="video-item">
+    <div class="video-wrapper">
       <video src="static/videos/default/20240519T215710-ach11-len218.mp4" autoplay muted loop controls></video>
       <div class="video-title">Default</div>
     </div>
-    <div class="video-item">
+    <!-- Description Card Below the Video Wrapper -->
+    <div class="video-description">
+      <!-- <p><strong>Default:</strong></p> -->
+      <ul>
+        <li>Follow behaviors in Crafter.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="video-item">
+    <div class="video-wrapper">
       <video src="static/videos/world_terr/20240523T193933-ach14-len226.mp4" autoplay muted loop controls></video>
       <div class="video-title">Modifying Terrain</div>
     </div>
-    <div class="video-item">
+    <!-- Description Card Below the Video Wrapper -->
+    <div class="video-description">
+      <!-- <p><strong>Terrian Changes:</strong></p> -->
+      <ul>
+        <li>Trees grow near paths;</li>
+        <li>Coal appears near grass.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="video-item">
+    <div class="video-wrapper">
       <video src="static/videos/world_npc/20240529T071830-ach8-len154.mp4" autoplay muted loop controls></video>
       <div class="video-title">Modifying NPC</div>
     </div>
-    <div class="video-item">
+    <!-- Description Card Below the Video Wrapper -->
+    <div class="video-description">
+      <!-- <p><strong>NPC Changes:</strong></p> -->
+      <ul>
+        <li>Cow can shoot;</li>
+        <li>Skeleton cannot shoot.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="video-item">
+    <div class="video-wrapper">
       <video src="static/videos/world_ach/20240521T202324-ach15-len484.mp4" autoplay muted loop controls></video>
       <div class="video-title">Modifying Task Dependency</div>
     </div>
-    <!-- <div class="video-item">
-      <video src="static/videos/world_terr_npc/20240530T161132-ach10-len253.mp4" autoplay muted loop controls></video>
-      <div class="video-title">Video 5</div>
+    <!-- Description Card Below the Video Wrapper -->
+    <div class="video-description">
+      <!-- <p><strong>Task Dependency Changes:</strong></p> -->
+      <ul>
+        <li>Mining diamond yields coal;</li>
+        <li>Placing table needs 2 diamonds.</li>
+      </ul>
     </div>
-    <div class="video-item">
-      <video src="static/videos/world_terr_ach/20240523T184527-ach15-len275.mp4" autoplay muted loop controls></video>
-      <div class="video-title">Video 6</div>
-    </div>
-    <div class="video-item">
-      <video src="static/videos/world_npc_ach/20240523T133310-ach6-len128.mp4" autoplay muted loop controls></video>
-      <div class="video-title">Video 7</div>
-    </div>
-    <div class="video-item">
-      <video src="static/videos/world_terr_npc_ach/20240523T224259-ach8-len176.mp4" autoplay muted loop controls></video>
-      <div class="video-title">Video 8</div>
-    </div> -->
-  </section>
-
+  </div>
+</section>
 
 
   <!-- Paper abstract -->
-  <section class="section hero is-light">
+  <section class="section hero is-light" style="background-color: white;">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
@@ -337,9 +393,13 @@
   <!-- Teaser image-->
   <section class="txj_section">
     <!-- Title -->
-    <h1 class="txj_title">Mars</h1>
+    <h1 class="txj_title">Mars: Situated Inductive Reasoning Benchmark</h1>
     
     <!-- Description -->
+
+    <p class="txj_description">
+      Imagine a scenario: in the United States, you drive on the right side of the road. When you travel to the UK, you might initially find it strange how people drive. However, you soon realize that driving on the left is the norm here and adapt yourself to the new rule. <b>Inductive reasoning</b>, a capacity that identifies underlying rules, mechanisms, or general claims of <em>observations</em> experience based on past <em>observations</em>.
+    </p>
     <p class="txj_description">
       Mars, an open-world environment for situated inductive reasoning, involves inductive reasoning through active interaction and applying newly acquired rules to make context-sensitive decisions.
     </p>
